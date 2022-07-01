@@ -1,7 +1,11 @@
 import React from 'react'
+import '../Styling/CaptureItems.css'
 
-export default function captureItems() {
+export default function CaptureItems() {
   return (
-    <div>captureItems</div>
+    <>
+    <div>Capture Items</div>
+      <h1>Capture Items</h1>
+    </>
   )
 }

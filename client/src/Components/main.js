@@ -1,7 +1,11 @@
 import React from 'react'
+import "../Styling/Main.css"
 
-export default function main() {
+export default function Main() {
   return (
-    <div>main</div>
+    <>
+    <div>Main</div>
+      <h1>Main</h1>
+    </>
   )
 }
