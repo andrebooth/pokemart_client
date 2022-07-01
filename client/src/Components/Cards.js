@@ -12,8 +12,7 @@ return (
         <div className='details'>
             <p>{name}</p>
             <p>{description}</p>
-            <p>{price}</p>
-            <p>{}</p>
+            <p className='price'>{price}</p>
             <button>Add to Cart</button>
         </div>
     </div>
