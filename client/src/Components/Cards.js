@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function Cards({item}) {
+function Cards({item, handleClick}) {
     const {id, name, description, price, image} = item;
 
 return (
@@ -13,7 +13,8 @@ return (
             <p>{name}</p>
             <p>{description}</p>
             <p className='price'>{price}</p>
-            <button>Add to Cart</button>
+            <button onClick={()=>handleClick(item)}>Add to Cart</button>
+            
         </div>
     </div>
     

@@ -6,7 +6,7 @@
 nav{
     width: 100%;
     height: 60%;
-    background-color: lightcoral;
+    background-color: rgb(19, 18, 18);
 }
 
 .nav_box {
@@ -26,6 +26,10 @@ color: white;
 font-family: cursive;
 cursor: pointer;
 }
+.my_logo {
+
+
+}
 
 .cart {
     cursor: pointer;
@@ -37,7 +41,7 @@ cursor: pointer;
 
 .cart span:nth-child(2) {
     padding: 0 3px;
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     color: white;
     font-weight: bold;
     border-radius: 5px;

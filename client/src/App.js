@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
 import './App.css';
 import Main from './Components/Main';
 import CaptureItems from './Components/CaptureItems';
@@ -7,17 +8,44 @@ import Heals from './Components/Heals';
 import {Link, Routes, Route, Navigate} from "react-router-dom"
 import NavBar from './Components/NavBar';
 import Pokemart from './Components/Pokemart';
+import Cart from './Components/Cart';
+
+
 function App() {
+  const [show, setShow] = useState(true);
+  const [itemscart, setItemsCart] = useState([]);
+
+    const handleClick = (item) => {
+      if (itemscart.indexOf(item) !== -1) return;
+        setItemsCart([...itemscart, item])
+        console.log(itemscart)
+    };
+
+    const handleChange = (item, d) => {
+      const ind = itemscart.indexOf(item);
+      const arr = itemscart;
+      arr[ind].amount += d;
+
+      if (arr[ind].amount === 0) arr[ind].amount = 1;
+      setItemsCart([...arr]);
+    };
+    // useEffect(()=> {
+    //   console.log('cart change')
+    // }, [cart]);
+
   return (
+   <>
     <div className="App">
-      <h1 className="title">PokeMart</h1> 
-      <p className="slogan">Everything you need to be the best trainer</p>
-      <NavBar/>
-      {/* <SupportItems/> */}
-      <Pokemart/>
-
-
-
+      <React.Fragment>
+        < NavBar setShow = {setShow} size={itemscart.length}/>
+        {show ? (
+        <Pokemart handleClick={handleClick}/>
+        ) : <Cart itemscart={itemscart} setItemsCart={setItemsCart} handleChange={handleChange}/>
+        }
+        {/* <Pokemart/>  */}
+       
+        {/* <SupportItems/> */}
+        </React.Fragment>
    {/* <header>
         <nav>
           <h1 className="pokemart">PokeMart</h1>
@@ -39,10 +67,11 @@ function App() {
             <Route path="/heals" element={<Heals/>}/>
             <Route path="/supportitems" element={<SupportItems/>}/>
       </Routes> */}
-   
     </div>
+   {/* <Pokemart/> */}
+   </>
   );
   
-}
+};
 
 export default App;
